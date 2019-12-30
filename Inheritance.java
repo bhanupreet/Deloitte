@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 class Person {
 
 	private int ssn, age;
@@ -42,7 +44,7 @@ class Person {
 	}
 }
 
-class Employee extends Person implements Comparable<Employee> {
+class Employee extends Person implements Comparable<Employee>, Serializable {
 	private int empid;
 	private double salary;
 

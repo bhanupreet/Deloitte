@@ -1,4 +1,6 @@
-class Employee2{
+import java.io.Serializable;
+
+class Employee2 implements Serializable{
 	private int empid;
 	private String ename;
 	private double salary;
