@@ -47,7 +47,7 @@ public class Employee  implements Comparable<Employee>, Serializable {
 		return 	"\n Name        = " + this.getName()   + 
 				"\n Empid       = " + empid + 
 				"\n Salary      = " + salary + 
-				"\n Date		= " + doj;
+				"\n Date	     = " + doj;
 	}
 
 	public double getSalary() {
