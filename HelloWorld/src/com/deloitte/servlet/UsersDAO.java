@@ -185,6 +185,9 @@ public class UsersDAO {
 				e.printStackTrace();
 			}
 		}
-		return emp.getUsername().equals(username) && emp.getPassword().equals(password);
+		if (emp != null)
+			return emp.getUsername().equals(username) && emp.getPassword().equals(password);
+		else
+			return false;
 	}
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/MoneyTransferServlet")
@@ -18,13 +19,16 @@ public class MoneyTransferServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
-		Cookie[] c = req.getCookies();
 		String username = null;
-		for(Cookie c1: c){
-			if(c1.getName().equals("username")){
-				username = c1.getValue();
-			}
-		}
+//		Cookie[] c = req.getCookies();
+//		for(Cookie c1: c){
+//			if(c1.getName().equals("username")){
+//				username = c1.getValue();
+//			}
+//		}
+		
+		HttpSession session = req.getSession();
+		username = (String) session.getAttribute("username");
 		double amount = Double.parseDouble(req.getParameter("amount"));
 		if(new AccountsDAO().updateBalance(username, amount)){
 			out.println("<h1><center> Amount transfered successfully</h1>");

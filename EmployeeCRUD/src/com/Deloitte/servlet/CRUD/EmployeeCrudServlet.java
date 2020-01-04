@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +23,7 @@ public class EmployeeCrudServlet extends HttpServlet {
 		Employee e = new Employee();
 		String message = "";
 		EmployeeDAO edao = new EmployeeDAO();
+		RequestDispatcher rd = req.getRequestDispatcher("EmployeeCrud.jsp");
 		e.setEmpid(Integer.parseInt(req.getParameter("empid")));
 		if (submit.equals("Add_Employee") || submit.equals("Modify_Employee")) {
 
@@ -44,10 +46,12 @@ public class EmployeeCrudServlet extends HttpServlet {
 			} else {
 				message = message + "Deletion Failed";
 			}
-		} else {
+		} else if (submit.equals("Show_Employee")) {
 			Employee e1 = edao.getEmployee(e.getEmpid());
-
+			req.setAttribute("emp", e1);
 		}
+		
 		out.print("<h1><center>" + message + "</center></h1>");
+		rd.include(req, resp);
 	}
 }

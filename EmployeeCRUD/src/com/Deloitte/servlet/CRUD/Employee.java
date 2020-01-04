@@ -25,7 +25,7 @@ public class Employee  implements Comparable<Employee>, Serializable {
 		this.doj = doj;
 	}
 
-	Employee() {
+	public Employee() {
 	}
 
 	public Employee(int empid,String name, double salary, Date doj) {

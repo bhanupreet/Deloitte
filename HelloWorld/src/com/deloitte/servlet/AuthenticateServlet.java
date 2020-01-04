@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet("/AuthenticateServlet")
@@ -22,8 +23,12 @@ public class AuthenticateServlet extends HttpServlet {
 		resp.setContentType("text/html");
 		String username = req.getParameter("uid");
 		String password = req.getParameter("pwd");
-		Cookie c = new Cookie("username",username);
-		resp.addCookie(c);
+//		Cookie c = new Cookie("username",username);
+//		resp.addCookie(c);
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("username", username);
+		
 		RequestDispatcher rd = null;
 		PrintWriter out = resp.getWriter();
 		out.println("<h1><center>");
