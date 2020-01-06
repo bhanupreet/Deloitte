@@ -20,26 +20,29 @@ public class App {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 		Transaction trans = session.beginTransaction();
-		// add to table
+		// CREATE
 		// session.save(emp);
 
-		// update
+		// UPDATE
 		// emp.setName("Ajay");
 		// emp.setSalary(2000);
 		// session.update(emp);
 
-		// session.evict(emp);
+		// DELETE
+//		Employee e2 = new Employee(101,"Ajay",2000,new Date(2020, 1, 3));
+//		session.delete(e2);
 
-		@SuppressWarnings("rawtypes")
-		List list = session.createQuery("from Employee").list();
-		@SuppressWarnings("rawtypes")
-		Iterator itr = list.iterator();
-		while (itr.hasNext()) {
-			Employee emp1 = (Employee) itr.next();
-			System.out.print(" Name: " + emp1.getName());
-			System.out.print(" Salary: " + emp1.getSalary());
-			System.out.println();
-		}
+		// READ
+//		@SuppressWarnings("rawtypes")
+//		List list = session.createQuery("from Employee").list();
+//		@SuppressWarnings("rawtypes")
+//		Iterator itr = list.iterator();
+//		while (itr.hasNext()) {
+//			Employee emp1 = (Employee) itr.next();
+//			System.out.print(" Name: " + emp1.getName());
+//			System.out.print(" Salary: " + emp1.getSalary());
+//			System.out.println();
+//		}
 
 		trans.commit();
 		session.close();
