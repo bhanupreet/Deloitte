@@ -14,30 +14,34 @@ import com.deloitte.firstMvn.HibernateFirst.entity.Employee;
 
 public class App {
 	public static void main(String[] args) {
-		
+
 		Properties prop = new Properties();
 		prop.put("hibernate.connection.driver_class", "oracle.jdbc.driver.OracleDriver");
-        prop.put("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:orcl");
-        prop.put("hibernate.connection.username", "scott");
-        prop.put("hibernate.connection.password", "tiger");
-        prop.put("hibernate.show_sql", "true");
-        prop.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		prop.put("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:orcl");
+		prop.put("hibernate.connection.username", "scott");
+		prop.put("hibernate.connection.password", "tiger");
+		prop.put("hibernate.show_sql", "true");
+		prop.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		// To create a table or view if it does not exist
+		prop.put("hibernate.hbm2ddl.auto", "update");
 
 		@SuppressWarnings("deprecation")
 		Employee emp = new Employee(101, "Bhanupreet singh", 1000, new Date(2020, 1, 3));
-		// Hibernate framework configuration
+
+		// Hibernate framework configuration used to encapsulate the
+		// configuration details
 		Configuration cfg = new Configuration();
-		
-	//	cfg.configure();
+		// cfg.configure();
 		cfg.addAnnotatedClass(Employee.class);
 		cfg.setProperties(prop);
 		SessionFactory factory = cfg.buildSessionFactory();
+		// session is a first level cache
 		Session session = factory.openSession();
 		Transaction trans = session.beginTransaction();
-		
+
 		// CREATE
-//		 session.save(emp);
-		
+		session.save(emp);
+
 		// READ
 		@SuppressWarnings("rawtypes")
 		List list = session.createQuery("from Employee").list();
@@ -47,20 +51,26 @@ public class App {
 			Employee emp1 = (Employee) itr.next();
 			System.out.println(emp1);
 		}
-		
+
 		Employee e = session.get(Employee.class, 101);
-		System.out.println(e);
+		if (e != null) {
+			// System.out.println(e);
+
+		}
+		
+		Employee e3 = session.load(Employee.class, 101);
+		// session.delete(e3);
 
 		// UPDATE
 		// emp.setName("Ajay");
 		// emp.setSalary(2000);
 		// session.update(emp);
-//		   session.saveOrUpdate(emp);
+		// session.saveOrUpdate(emp);
 
 		// DELETE
-//		Employee e2 = new Employee(101,"Ajay",2000,new Date(2020, 1, 3));
-//		session.delete(e2);
-//		session.delete(emp);
+		// Employee e2 = new Employee(101,"Ajay",2000,new Date(2020, 1, 3));
+		// session.delete(e2);
+		// session.delete(emp);
 
 		trans.commit();
 		session.close();
