@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.deloitte.Spring.FirstSpringProject.model"/>
+
+
+
+	<!-- <bean id="wish1" class="com.deloitte.Spring.FirstSpringProject.model.Wisher" 
+		init-method="initWisher" destroy-method="destWisher" lazy-init = "true"> 
+		<property name="message" value="Hello World" /> </bean> -->
+	<bean id="wish1" class="com.deloitte.Spring.FirstSpringProject.model.Wisher"
+		scope="prototype">
+		<property name="message" value="Hello World" />
+	</bean>
+
+	<bean id="address" class="com.deloitte.Spring.FirstSpringProject.model.Address"
+		scope="prototype">
+		<property name="hno" value="1-2-3" />
+		<property name="city" value="Hyderabad" />
+		<property name="state" value="Telangana" />
+
+
+	</bean>
+
+	<!-- autowiring byName, byType, constructor -->
+	<!-- Dependency injection -->
+	<!-- <bean id="per1" class="com.deloitte.Spring.FirstSpringProject.model.Person"> 
+		<property name="ssn" value="101" /> <property name="name" value="Ajay Saxena" 
+		/> <property name="address" ref="add1" /> </bean> -->
+
+
+	<!-- constructor injection <bean id="per1" class="com.deloitte.Spring.FirstSpringProject.model.Person"> 
+		<constructor-arg name="" value="" /> <constructor-arg name="name" value="Ajay 
+		Saxena" /> <constructor-arg name="address" ref="add1" /> </bean> -->
+</beans>
