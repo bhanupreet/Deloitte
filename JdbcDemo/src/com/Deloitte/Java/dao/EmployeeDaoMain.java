@@ -17,8 +17,7 @@ public class EmployeeDaoMain {
 		Employee e1 = new Employee(102, "Bhanupreet", 3000, new Date(1990, 10, 12));
 //		if (edao.updateEmployee(e1)) {
 ////			System.out.println("modified");
-//		} else {
-////			System.out.println("error");
+//		} else {////			System.out.println("error");
 //		}
 		
 		ArrayList<Employee> eList = new ArrayList<>();
