@@ -40,7 +40,7 @@ public class BookDAO {
 	public boolean deleteBook(int bookid) {
 		Session session = factory.openSession();
 		Transaction trans = session.beginTransaction();
-		Book b = session.get(Book.class, 101);
+		Book b = session.get(Book.class, bookid);
 		if (b != null) {
 			session.delete(b);
 			trans.commit();
@@ -50,7 +50,7 @@ public class BookDAO {
 
 	public Book getBook(int bookid) {
 		Session session = factory.openSession();
-		return session.get(Book.class, 101);
+		return session.get(Book.class, bookid);
 	}
 
 	@SuppressWarnings("unchecked")

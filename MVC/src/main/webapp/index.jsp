@@ -15,7 +15,7 @@
 				<td><input type=password name=pwd></td>
 			<tr>
 				<td><input type=submit value=login></td>
-				<td><input type=submit value=login></td>
+				<td><input type=reset value=cancel></td>
 		</table>
 	</form>
 </body>
