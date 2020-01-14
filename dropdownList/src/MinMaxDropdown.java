@@ -20,6 +20,5 @@ public class MinMaxDropdown {
 		List<WebElement> list = dropdownselec.getOptions();
 		System.out.println("min value: " + list.get(0).getText());
 		System.out.println("max value: " + list.get(list.size()-1).getText());
-
 	}
 }
