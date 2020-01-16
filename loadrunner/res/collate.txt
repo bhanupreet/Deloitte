@@ -1,0 +1,5 @@
+[Diagnostics]
+Status=-1
+[Collate Recovery]
+Scenario=C:\Users\admin\Documents\Controller\scenario\Scenario3.lrs
+Completed=0
