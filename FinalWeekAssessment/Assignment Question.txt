@@ -1,0 +1,33 @@
+                               \\192.168.1.4
+what is the difference between BVT and Defects Life Cycle
+What is the test process and test design
+what is the differencc between HTTP/SOAP/REST
+what Kind of tool is selenium in terms of Web based application
+what is the Load Runner suite and selenium suite
+Can selenium scripts be embedded in Load Runner - justify
+
+Requirement to automate a web based application for the currency validation
+
+1.The User has to validate the currency conversion keeping the base currency in INR as country Name India and display the currency for the various 
+transactions in the opencart and validate the base curreny with populated in the open cart application
+
+2.The input has to be taken for the user for the base currency and checked against the tranaction curreny with valiation on the web based objects
+Count the number of links in the drop down box of the currency
+
+3.capture the validation message for the invalid curreny using the java script alert box or text message
+		
+								ANSWERS
+
+a Ans: Build verification test is a set of tests which are run on every new build to verify that whether build is testable before it is released to test 
+team for further testing whereas a Defect life cycle, also known as a Bug life cycle, is a cycle of a defect from which it goes through covering the different 
+states in its entire life.
+
+b Ans: Test design is a process that describes how testing should be done. It includes processes for the identifying test cases by enumerating steps of the defined test conditions.
+       Test process  starts from test planning then designing test cases, preparing for execution and evaluating status till the test closure.
+
+c Ans: SOAP is a protocol whereas REST is an architectural pattern. Http is the lower level transmission protocol.
+d Ans: Selenium is an open source tool in terms of web based application.
+e Ans: LoadRunner is a software testing tool. It is used to test applications, measuring system behaviour and performance under load. LoadRunner can simulate thousands of users concurrently using application software, recording and later analyzing the performance of key components of the application.
+       Selenium is not just a single tool but a suite of software, each with a different approach to support automation testing.Selenium suite is an automated testing suite for web applications.
+f Ans:  Yes, Selenium scripts can be embedded in Load runner.Creating a seleniuum test in load runner is possible.
+
